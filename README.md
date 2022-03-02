@@ -1,24 +1,44 @@
-# README
+# MusicMasterPiece
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+「名盤だと思うアルバムを紹介するサイト」
 
-* Ruby version
+クラシックアルバムからマイナーアルバムまで自分が名盤だと思う
+アルバムの紹介や他ユーザの投稿を閲覧することが可能です。
 
-* System dependencies
+### サイトテーマ
 
-* Configuration
+名盤のシェア。
 
-* Database creation
+### テーマを選んだ理由
 
-* Database initialization
+私は、音楽が好きで、RapMusic を 20 年以上聴いております。
+しかし、コアになればなる程、情報が一切なかったり、共有できる人もほぼ皆無です。
+同じような悩みを持った音楽ユーザを集め、色々なジャンルの名盤の感想、評価を行える
+場を作り、新たな名盤の探求ができればと思います。
 
-* How to run the test suite
+### ターゲットユーザ
 
-* Services (job queues, cache servers, search engines, etc.)
+音楽の情報を共有したい人。
 
-* Deployment instructions
+### 主な利用シーン
 
-* ...
+音楽を共有したい時や、他ユーザの音楽情報を閲覧したい時。
+アルバム等の情報を閲覧し、購入の検討材料にする。
+
+## 設計書
+
+<...>
+
+## チャレンジ要素一覧
+
+<https://docs.google.com/spreadsheets/d/1PSh0we89ec1jaQ7fATGvNG-dPcuLu_DUnXUGMUafKtM/edit?usp=sharing>
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- IDE：Cloud9
