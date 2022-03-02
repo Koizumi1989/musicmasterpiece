@@ -1,4 +1,4 @@
-# <MusicMasterPiece>
+# MusicMasterPiece
 
 ## サイト概要
 
