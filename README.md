@@ -29,7 +29,7 @@
 
 ## 設計書
 
-<...>
+<https://github.com/Koizumi1989/musicmasterpiece/files/8174321/drawio.pdf>
 
 ## チャレンジ要素一覧
 
