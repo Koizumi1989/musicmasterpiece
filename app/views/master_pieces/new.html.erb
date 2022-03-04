@@ -1,0 +1,56 @@
+<div class="container">
+  <br>
+  <h2 style="display:inline">名盤投稿</h2>
+  <br><br>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+     <%= form_with model: @master_piece, url: master_pieces_path, method: :post, local:true do |f| %>
+      <div class="form-group">
+        <div class="row">
+          <label for="item_image" class="col-sm-3 col-form-label">名盤画像</label>
+          <div class="col-sm-9">
+          <%= f.file_field :image, accept: "item_image/*" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label for="item_name" class="col-sm-3 col-form-label">アーティスト</label>
+          <div class="col-sm-9">
+           <%= f.text_field :artist, :value => "artist" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label for="item_introduction" class="col-sm-3 col-form-label">タイトル</label>
+          <div class="col-sm-9">
+            <%= f.text_field :title, size: "40x5", :value => "title"  %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label for="item_genre" class="col-sm-3 col-form-label">ジャンル</label>
+          <div class="col-sm-9">
+            <%= f.text_field :jenre, :value => "jenre" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label for="item_price" class="col-sm-3 col-form-label">説明</label>
+          <div class="col-sm-9">
+           <%= f.text_area :introduction, size: "40x5", :value => "introduction"  %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mx-auto" style="width: 100px;">
+        <%= f.submit "新規登録", class: "btn btn-success" %>
+      </div>
+     <% end %>
+   </div>
+  </div>
+</div>

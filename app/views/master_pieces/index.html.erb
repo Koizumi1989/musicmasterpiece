@@ -1,2 +1,35 @@
-<h1>MasterPieces#index</h1>
-<p>Find me in app/views/master_pieces/index.html.erb</p>
+<div class="container">
+  <br>
+  <h2 style="display:inline">名盤一覧</h2>
+  <br><br>
+  <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th>名盤画像</th>
+          <th>アーティスト</th>
+          <th>タイトル</th>
+          <th>ジャンル</th>
+          <th>評価</th>
+          <th></th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @master_pieces.each do |m| %>
+        <tr>
+          <td>
+            <% if m.image.attached? %>
+              <%= image_tag m.image, size: "50x50" %>
+            <% else %>
+              <%= image_tag 'record.jpg', size: "50x50" %>
+            <% end %>
+          </td>
+          <td><%= m.artist %></td>
+          <td><%= m.title%></td>
+          <td><%= m.jenre %></td>
+          <td></td>
+          <td><%= link_to "詳細", master_piece_path(m.id), class: "btn btn-sm btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
