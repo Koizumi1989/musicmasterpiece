@@ -16,7 +16,7 @@ class MasterPiecesController < ApplicationController
   end
 
   def index
-    @master_pieces = MasterPiece.all
+    @master_pieces = MasterPiece.page(params[:page])
   end
 
   def show

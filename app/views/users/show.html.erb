@@ -1,2 +1,71 @@
-<h1>Users#show</h1>
-<%= link_to "名盤を投稿する", new_master_piece_path, class: "btn btn-sm btn-primary" %>
+<div class="container">
+  <div class="row d-flex justify-content-center pt-2"><%= link_to "名盤を投稿する", new_master_piece_path, class: "btn btn-outline-primary btn-lg btn-block" %></div>
+  <br>
+  <h2 style="display:inline">会員情報</h2>
+  <br><br>
+  <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th>画像</th>
+          <th>名前</th>
+          <th>紹介</th>
+          <th>お気に入り一覧</th>
+          <th></th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr>
+        <td>
+          <% if @user.image.attached? %>
+            <%= image_tag @user.image, size: "50x50" %>
+          <% else %>
+            <%= image_tag 'no_image.jpg', size: "50x50" %>
+          <% end %>
+        </td>
+        <td><%= @user.name %></td>
+        <td><%= @user.introduction %></td>
+        <td></td>
+        <% if current_user.id == @user.id %>
+        <td><%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+  <h2 style="display:inline">投稿名盤一覧</h2>
+  <br><br>
+  <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th>名盤画像</th>
+          <th>アーティスト</th>
+          <th>タイトル</th>
+          <th>ジャンル</th>
+          <th>評価</th>
+          <th></th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @master_piece.each do |m| %>
+        <tr>
+          <td>
+            <% if m.image.attached? %>
+              <%= image_tag m.image, size: "50x50" %>
+            <% else %>
+              <%= image_tag 'record.jpg', size: "50x50" %>
+            <% end %>
+          </td>
+          <td><%= m.artist %></td>
+          <td><%= m.title%></td>
+          <td><%= m.jenre %></td>
+          <td></td>
+          <td><%= link_to "詳細", master_piece_path(m.id), class: "btn btn-sm btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+

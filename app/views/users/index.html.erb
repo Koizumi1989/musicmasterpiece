@@ -1,2 +1,33 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <br>
+  <h2 style="display:inline">会員一覧</h2>
+  <br><br>
+  <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th>画像</th>
+          <th>名前</th>
+          <th>紹介</th>
+          <th></th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @user.each do |u| %>
+        <tr>
+          <td>
+            <% if u.image.attached? %>
+              <%= image_tag u.image, size: "50x50" %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', size: "50x50" %>
+            <% end %>
+          </td>
+          <td><%= u.name %></td>
+          <td><%= u.introduction %></td>
+
+          <td><%= link_to "詳細", user_path(u.id), class: "btn btn-sm btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="d-flex justify-content-center"><%= paginate @user %></div>
