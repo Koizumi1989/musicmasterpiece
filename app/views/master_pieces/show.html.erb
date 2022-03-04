@@ -2,19 +2,34 @@
 
 <%= @master_piece.user.name %><br>
 
-<% if @master_piece.image.attached? %>
-  <%= image_tag @master_piece.image, size: "50x50" %>
-<% else %>
-  <%= image_tag 'record.jpg', size: "50x50" %>
-<% end %>
-<%= @master_piece.artist %>
-<%= @master_piece.title%>
-<%= @master_piece.jenre %>
-<%= @master_piece.introduction %>
-<h2>評価</h2>
-<h2>お気に入りボタン</h2>
 
-          <% if current_user.id == @master_piece.user_id %>
-            <%= link_to '編集', edit_master_piece_path(@master_piece), class: "btn btn-sm btn-success" %>
-            <%= link_to '消去', @master_piece, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
-          <% end %>
+<div class="container">
+  <div class="row">
+    <div class="card" style="width: 18rem;">
+  <div class="bd-placeholder-img card-img-top">
+    <% if @master_piece.image.attached? %>
+      <%= image_tag @master_piece.image, size: "50x50" %>
+    <% else %>
+      <%= image_tag 'no_image.jpg', size: "50x50" %>
+    <% end %>
+  </div>
+  
+  <div class="card-body">
+    <h5><%= @master_piece.artist %></h5>
+    <h5><%= @master_piece.title%></h5>
+    <h5><%= @master_piece.jenre %></h5>
+    <p><%= @master_piece.introduction %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">評価</li>
+    <li class="list-group-item">お気に入りボタン</li>
+  </ul>
+  <div class="card-body">
+    <% if current_user.id == @master_piece.user_id %>
+      <span><%= link_to '編集', edit_master_piece_path(@master_piece), class: "btn btn-sm btn-success" %></span>
+      <span><%= link_to '消去', @master_piece, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></span>
+    <% end %>
+  </div>
+</div>
+  </div>
+</div>
