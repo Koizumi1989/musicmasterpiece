@@ -20,15 +20,26 @@ class MasterPiecesController < ApplicationController
   end
 
   def show
+    @master_piece = MasterPiece.find(params[:id])
   end
 
   def edit
+    @master_piece = MasterPiece.find(params[:id])
   end
 
   def update
+    @master_piece = MasterPiece.find(params[:id])
+    if @master_piece.update(master_piece_params)
+      redirect_to master_piece_path(@master_piece.id), notice: "You have updated book successfully."
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @master_piece = MasterPiece.find(params[:id])
+    @master_piece.destroy
+    redirect_to master_pieces_path
   end
 
   def search

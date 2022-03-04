@@ -1,2 +1,20 @@
-<h1>MasterPieces#show</h1>
-<p>Find me in app/views/master_pieces/show.html.erb</p>
+<h2>名盤紹介</h2>
+
+<%= @master_piece.user.name %><br>
+
+<% if @master_piece.image.attached? %>
+  <%= image_tag @master_piece.image, size: "50x50" %>
+<% else %>
+  <%= image_tag 'record.jpg', size: "50x50" %>
+<% end %>
+<%= @master_piece.artist %>
+<%= @master_piece.title%>
+<%= @master_piece.jenre %>
+<%= @master_piece.introduction %>
+<h2>評価</h2>
+<h2>お気に入りボタン</h2>
+
+          <% if current_user.id == @master_piece.user_id %>
+            <%= link_to '編集', edit_master_piece_path(@master_piece), class: "btn btn-sm btn-success" %>
+            <%= link_to '消去', @master_piece, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+          <% end %>
