@@ -6,13 +6,13 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
-            <%= link_to "マイページ", new_user_session_path,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "マイページ", user_path(current_user),class: 'btn btn-sm btn-outline-light mr-2' %>
           </li>
           <li>
-            <%= link_to "会員一覧", new_user_session_path,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "会員一覧", users_path,class: 'btn btn-sm btn-outline-light mr-2' %>
           </li>
           <li>
-            <%= link_to "名盤一覧", new_user_session_path,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "名盤一覧", master_pieces_path,class: 'btn btn-sm btn-outline-light mr-2' %>
           </li>
           <li>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'btn btn-sm btn-outline-light mr-2' %>

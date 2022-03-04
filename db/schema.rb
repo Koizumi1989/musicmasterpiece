@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_03_142825) do
+ActiveRecord::Schema.define(version: 2022_03_04_044503) do
+
+  create_table "master_pieces", force: :cascade do |t|
+    t.string "title"
+    t.string "artist"
+    t.string "jenre"
+    t.text "introduction"
+    t.integer "user_id"
+    t.integer "rate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
