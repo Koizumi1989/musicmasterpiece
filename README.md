@@ -39,7 +39,6 @@
 ## 設計書
 
 
-
 ## チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1PSh0we89ec1jaQ7fATGvNG-dPcuLu_DUnXUGMUafKtM/edit?usp=sharing>
@@ -51,3 +50,6 @@
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+ロゴは <a href="https://www.designevo.com/jp/" title="無料オンラインロゴメーカー">DesignEvo</a> ロゴメーカーさんに作られる
