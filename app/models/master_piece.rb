@@ -2,6 +2,7 @@ class MasterPiece < ApplicationRecord
   belongs_to :user
   has_many :master_piece_comments, dependent: :destroy
 
+
   has_one_attached :image
   validates :title, presence: true
   validates :introduction, presence: true
