@@ -17,11 +17,7 @@
       <% @master_pieces.each do |m| %>
         <tr>
           <td>
-            <% if m.image.attached? %>
-              <%= image_tag m.image, size: "50x50" %>
-            <% else %>
-              <%= image_tag 'record.jpg', size: "50x50" %>
-            <% end %>
+            <%= image_tag m.get_image, size: "50x50" %>
           </td>
           <td><%= m.artist %></td>
           <td><%= m.title%></td>

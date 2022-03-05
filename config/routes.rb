@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root to: "homes#top"
 
   resources :master_pieces, only: [:index, :show, :create, :edit, :update, :destroy, :new] do
-  collection do
+    collection do
       get :search
     end
+    resources :master_piece_comments, only:[:create, :destroy]
   end
 
   resources :users, only: [:index, :show, :edit, :update] do

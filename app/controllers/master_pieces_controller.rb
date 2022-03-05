@@ -21,6 +21,7 @@ class MasterPiecesController < ApplicationController
 
   def show
     @master_piece = MasterPiece.find(params[:id])
+    @master_piece_comment = MasterPieceComment.new
   end
 
   def edit

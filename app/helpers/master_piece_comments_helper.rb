@@ -1,0 +1,2 @@
+module MasterPieceCommentsHelper
+end

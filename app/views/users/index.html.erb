@@ -15,11 +15,7 @@
       <% @user.each do |u| %>
         <tr>
           <td>
-            <% if u.image.attached? %>
-              <%= image_tag u.image, size: "50x50" %>
-            <% else %>
-              <%= image_tag 'no_image.jpg', size: "50x50" %>
-            <% end %>
+            <%= image_tag u.get_image, size: "50x50" %>
           </td>
           <td><%= u.name %></td>
           <td><%= u.introduction %></td>

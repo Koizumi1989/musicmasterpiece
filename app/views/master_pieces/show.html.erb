@@ -7,18 +7,14 @@
   <div class="row">
     <div class="card" style="width: 18rem;">
   <div class="bd-placeholder-img card-img-top">
-    <% if @master_piece.image.attached? %>
-      <%= image_tag @master_piece.image, size: "50x50" %>
-    <% else %>
-      <%= image_tag 'no_image.jpg', size: "50x50" %>
-    <% end %>
+    <%= image_tag @master_piece.get_image, size: "50x50" %>
   </div>
-  
+
   <div class="card-body">
-    <h5><%= @master_piece.artist %></h5>
-    <h5><%= @master_piece.title%></h5>
-    <h5><%= @master_piece.jenre %></h5>
-    <p><%= @master_piece.introduction %></p>
+    <p>アーティスト：<%= @master_piece.artist %></p>
+    <p>タイトル：<%= @master_piece.title%></p>
+    <p>ジャンル：<%= @master_piece.jenre %></p>
+    <p>説明：<%= @master_piece.introduction %></p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">評価</li>
@@ -30,6 +26,28 @@
       <span><%= link_to '消去', @master_piece, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></span>
     <% end %>
   </div>
+
+  <div class="card-body">
+    <p>コメント件数：<%= @master_piece.master_piece_comments.count %></p>
+    <% @master_piece.master_piece_comments.each do |mpc| %>
+      <p class="mt-3"><%= image_tag mpc.user.get_image, size: "50x50" %></p>
+      <%= mpc.user.name %>
+      <%= mpc.created_at.strftime('%Y/%m/%d') %><br>
+      <%= mpc.comment %><br>
+      <% if current_user.id == @master_piece.user_id %>
+      <%= link_to '消去', master_piece_master_piece_comment_path(mpc.master_piece,mpc), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+    <% end %>
+    <% end %>
+  </div>
+
+  <div class ="card-body">
+    <%= form_with model: [@master_piece, @master_piece_comment] do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>
+
+
 </div>
   </div>
 </div>
