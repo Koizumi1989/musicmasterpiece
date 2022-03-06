@@ -50,6 +50,6 @@ class MasterPiecesController < ApplicationController
   private
 
   def master_piece_params
-    params.require(:master_piece).permit(:image, :title, :artist, :jenre, :introduction)
+    params.require(:master_piece).permit(:title, :artist, :jenre, :introduction)
   end
 end

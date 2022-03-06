@@ -8,14 +8,6 @@
      <%= form_with model: @master_piece, url: master_piece_path(@master_piece), method: :patch, local:true do |f| %>
       <div class="form-group">
         <div class="row">
-          <label for="image" class="col-sm-3 col-form-label">名盤画像</label>
-          <div class="col-sm-9">
-          <%= f.file_field :image, accept: "image/*" %>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="row">
           <label for="artist" class="col-sm-3 col-form-label">アーティスト</label>
           <div class="col-sm-9">
            <%= f.text_field :artist, :value => "artist" %>

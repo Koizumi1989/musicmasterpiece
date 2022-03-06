@@ -5,7 +5,7 @@
   <table class='table'>
       <thead class="bg-light text-dark">
         <tr>
-          <th>名盤画像</th>
+          <th></th>
           <th>アーティスト</th>
           <th>タイトル</th>
           <th>ジャンル</th>
@@ -17,7 +17,7 @@
       <% @master_pieces.each do |m| %>
         <tr>
           <td>
-            <%= image_tag m.get_image, size: "50x50" %>
+            <%= image_tag 'record.jpg', size: '50x50' %>
           </td>
           <td><%= m.artist %></td>
           <td><%= m.title%></td>

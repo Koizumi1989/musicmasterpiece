@@ -2,7 +2,6 @@ class MasterPiece < ApplicationRecord
   belongs_to :user
   has_many :master_piece_comments, dependent: :destroy
 
-
   has_one_attached :image
   validates :title, presence: true
   validates :introduction, presence: true
@@ -13,7 +12,7 @@ class MasterPiece < ApplicationRecord
   def self.looks(search, word)
     # 完全一致→perfect_match
     if search == "perfect_match"
-      @master_piece = MasterPiece.where(['artist LIKE(?) OR title LIKE(?)',"%#{word}%","%#{word}%"])
+      @master_piece = MasterPiece.where(['artist LIKE(?) OR title LIKE(?) OR jenre LIKE(?)',"#{word}","#{word}","#{word}"])
       # 前方一致→forward_match
     elsif search == "forward_match"
       @master_piece = MasterPiece.where(['artist LIKE(?) OR title LIKE(?) OR jenre LIKE(?)', "#{word}%", "#{word}%", "#{word}%"])

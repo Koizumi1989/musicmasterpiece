@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
   has_one_attached :image
-  
+
   # 検索
   def self.looks(search, word)
     # 完全一致→perfect_match
