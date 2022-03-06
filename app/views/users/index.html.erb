@@ -12,18 +12,17 @@
         </tr>
       </thead>
     <tbody>
-      <% @user.each do |u| %>
+      <% @users.each do |u| %>
         <tr>
           <td>
             <%= image_tag u.get_image, size: "50x50" %>
           </td>
           <td><%= u.name %></td>
           <td><%= u.introduction %></td>
-
           <td><%= link_to "詳細", user_path(u.id), class: "btn btn-sm btn-success" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-<div class="d-flex justify-content-center"><%= paginate @user %></div>
+<div class="d-flex justify-content-center"><%= paginate @users %></div>

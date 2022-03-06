@@ -10,6 +10,24 @@ class MasterPiece < ApplicationRecord
   validates :artist, presence: true
   # validates :rate, presence: true
 
+  def self.looks(search, word)
+    # 完全一致→perfect_match
+    if search == "perfect_match"
+      @master_piece = MasterPiece.where(['artist LIKE(?) OR title LIKE(?)',"%#{word}%","%#{word}%"])
+      # 前方一致→forward_match
+    elsif search == "forward_match"
+      @master_piece = MasterPiece.where(['artist LIKE(?) OR title LIKE(?) OR jenre LIKE(?)', "#{word}%", "#{word}%", "#{word}%"])
+      # 後方一致→backword_match
+    elsif search == "backward_match"
+      @master_piece = MasterPiece.where(['artist LIKE(?) OR title LIKE(?) OR jenre LIKE(?)', "%#{word}", "%#{word}", "%#{word}"])
+      # 部分一致→partial_match
+    elsif search == "partial_match"
+      @master_piece = MasterPiece.where(['artist LIKE(?) OR title LIKE(?) OR jenre LIKE(?)', "%#{word}%", "%#{word}%", "%#{word}%"])
+    else
+      @master_piece = MasterPiece.all
+    end
+  end
+
   def get_image
     if image.attached?
       image

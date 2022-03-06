@@ -16,7 +16,7 @@ class MasterPiecesController < ApplicationController
   end
 
   def index
-    @master_pieces = MasterPiece.page(params[:page])
+    @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
   end
 
   def show
