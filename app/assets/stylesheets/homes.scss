@@ -3,14 +3,40 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 @import "skippr";
-
-.logo {
-  background-image: url(logo.jpg);
-}
-.no_image {
-  background-image: url(no_image.jpg);
-}
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=New+Rocker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=New+Rocker&family=Train+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=New+Rocker&family=Rampart+One&family=Train+One&display=swap');
 
 #container{
-  height: 200px;
+  height: 500px;
+}
+
+.title {
+  // font-family: 'New Rocker', cursive;
+  font-family: 'Monoton', cursive;
+}
+
+.text {
+  font-family: 'Rampart One', cursive;
+}
+
+.stage {
+  background-image: url(stage.jpg);
+}
+.stage2 {
+  background-image: url(stage2.jpg);
+}
+.record2 {
+  background-image: url(record2.jpg);
+}
+
+.tape {
+  background-image: url(tape.jpg);
+}
+.jazz {
+  background-image: url(jazz.jpg);
+}
+.drum {
+  background-image: url(drum.jpg);
 }

@@ -2,29 +2,34 @@
   <nav class="navbar navbar-expand-lg" style="background-color: #FF6928">
     <div class="container">
       <a class="navbar-brand" href="/"><%= image_tag 'logo.jpg', size: '120x120' %></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
-            <%= link_to "マイページ", user_path(current_user),class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "マイページ", user_path(current_user),class: 'btn btn-sm btn-secondary mr-2' %>
           </li>
           <li>
-            <%= link_to "会員一覧", users_path,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "会員一覧", users_path,class: 'btn btn-sm btn-info mr-2' %>
           </li>
           <li>
-            <%= link_to "名盤一覧", master_pieces_path,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "名盤一覧", master_pieces_path,class: 'btn btn-sm btn-warning mr-2' %>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'btn btn-sm btn-danger mr-2' %>
           </li>
         <% else %>
           <li>
-            <%= link_to "新規登録", new_user_registration_path,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "新規登録", new_user_registration_path,class: 'btn btn-sm btn-success mr-2' %>
           </li>
           <li>
-            <%= link_to "ログイン", new_user_session_path,class: 'btn btn-sm btn-outline-light mr-2' %>
+            <%= link_to "ログイン", new_user_session_path,class: 'btn btn-sm btn-primary mr-2' %>
           </li>
         <% end %>
         </ul>
+        </div>
     </div>
   </nav>
     <div class ="container">
