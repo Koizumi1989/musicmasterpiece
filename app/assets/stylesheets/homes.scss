@@ -22,21 +22,21 @@
 }
 
 .no_music {
-  background-image: url(no_music.jpg);
+  background-image: image-url('no_music.jpg');
 }
 .stage {
-  background-image: url(stage.jpg);
+  background-image: image-url('stage.jpg');
 }
 .record2 {
-  background-image: url(record2.jpg);
+  background-image: image-url('record2.jpg');
 }
 
 .tape_index {
-  background-image: url(tape_index.jpg);
+  background-image: image-url('tape_index.jpg');
 }
 .index {
-  background-image: url(index.jpg);
+  background-image: image-url('index.jpg');
 }
 .drum {
-  background-image: url(drum.jpg);
+  background-image: image-url('drum.jpg');
 }
