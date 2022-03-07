@@ -26,7 +26,7 @@
         <div class="row">
           <label for="item_genre" class="col-sm-3 col-form-label">ジャンル</label>
           <div class="col-sm-9">
-            <%= f.text_field :jenre, :value => "jenre" %>
+            <%= f.select :jenre, options_for_select([["POP"],["ROCK"],["HIP HOP",],["R & B"],["FUNK / SOUL"],["CLASSICAL"],["REGGAE"],["JAZZ"],["OTHERS"]]) %>
           </div>
         </div>
       </div>

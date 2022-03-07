@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.page(params[:page])
+    @users = User.page(params[:page]).order(created_at: :desc)
   end
 
   def show
     @user = User.find(params[:id])
-    @master_piece = @user.master_pieces
+    @master_piece = @user.master_pieces.order(created_at: :desc)
   end
 
   def edit
