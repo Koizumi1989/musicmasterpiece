@@ -2,6 +2,7 @@ class MasterPieceCommentsController < ApplicationController
   def create
     master_piece = MasterPiece.find(params[:master_piece_id])
 
+    # comment = currnet_user.master_piece_comments.new(master_piece_comments_params)
     comment = MasterPieceComment.new(master_piece_comments_params)
     comment.user_id = current_user.id
     comment.master_piece_id = master_piece.id
