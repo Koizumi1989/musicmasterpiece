@@ -43,13 +43,9 @@ class MasterPiecesController < ApplicationController
     redirect_to master_pieces_path
   end
 
-  def search
-  end
-
-
   private
 
   def master_piece_params
-    params.require(:master_piece).permit(:title, :artist, :jenre, :introduction)
+    params.require(:master_piece).permit(:title, :artist, :jenre, :introduction, :rate)
   end
 end

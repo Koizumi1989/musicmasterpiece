@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2022_03_05_114125) do
     t.string "jenre"
     t.text "introduction"
     t.integer "user_id"
-    t.integer "rate"
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

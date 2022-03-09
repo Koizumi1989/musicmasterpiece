@@ -6,7 +6,7 @@ class CreateMasterPieces < ActiveRecord::Migration[6.1]
       t.string :jenre
       t.text :introduction
       t.integer :user_id
-      t.integer :rate
+      t.float :rate
       t.timestamps
     end
   end

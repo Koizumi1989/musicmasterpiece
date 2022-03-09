@@ -16,7 +16,21 @@
     <p>説明：<%= @master_piece.introduction %></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">評価</li>
+    <li class="list-group-item">
+              <span id="rate<%= @master_piece.id %>"></span>
+              <script>
+                $('#rate<%= @master_piece.id%>').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: '@master_piece[rate]',
+                  half: true,
+                  readOnly: true,
+                  score: <%= @master_piece.rate %>,
+                });
+              </script>
+    </li>
     <li class="list-group-item">
 
 
