@@ -55,7 +55,20 @@
           <td><%= m.artist %></td>
           <td><%= m.title%></td>
           <td><%= m.jenre %></td>
-          <td></td>
+          <td id="rate<%= m.id %>"></span>
+              <script>
+                $('#rate<%= m.id%>').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: '@master_piece[rate]',
+                  half: true,
+                  readOnly: true,
+                  score: <%= m.rate %>,
+                });
+              </script>
+          </td>
           <td><%= link_to "詳細", master_piece_path(m.id), class: "btn btn-sm btn-success" %></td>
         </tr>
       <% end %>
