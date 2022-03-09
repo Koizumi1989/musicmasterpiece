@@ -1,6 +1,8 @@
 class MasterPiece < ApplicationRecord
   belongs_to :user
   has_many :master_piece_comments, dependent: :destroy
+  has_many :likes
+
 
   has_one_attached :image
   validates :title, presence: true
@@ -8,6 +10,15 @@ class MasterPiece < ApplicationRecord
   validates :jenre, presence: true
   validates :artist, presence: true
   # validates :rate, presence: true
+  
+  
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
+  
+  
+  
+  
 
   def self.looks(search, word)
     # 完全一致→perfect_match

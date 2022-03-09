@@ -1,0 +1,32 @@
+<div class="container">
+  <br>
+  <h2 style="display:inline">お気に入り一覧</h2>
+  <br><br>
+  <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th></th>
+          <th>アーティスト</th>
+          <th>タイトル</th>
+          <th>ジャンル</th>
+          <th>評価</th>
+          <th></th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @master_pieces.each do |m| %>
+        <tr>
+          <td>
+            <%= image_tag 'record.jpg', size: '50x50' %>
+          </td>
+          <td><%= m.artist %></td>
+          <td><%= m.title%></td>
+          <td><%= m.jenre %></td>
+          <td></td>
+          <td><%= link_to "詳細", master_piece_path(m.id), class: "btn btn-sm btn-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<!--<div class="d-flex justify-content-center"><%#= paginate @master_pieces %></div>-->

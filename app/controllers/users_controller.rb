@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @master_piece = @user.master_pieces.order(created_at: :desc)
+    @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
   end
 
   def edit

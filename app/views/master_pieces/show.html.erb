@@ -18,7 +18,14 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">評価</li>
-    <li class="list-group-item">お気に入りボタン</li>
+    <li class="list-group-item">
+      
+
+<%= render 'likes/like', master_piece: @master_piece %>
+
+
+
+    </li>
   </ul>
   <div class="card-body">
     <% if current_user.id == @master_piece.user_id %>
