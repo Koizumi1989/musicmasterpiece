@@ -2,8 +2,8 @@ class LikesController < ApplicationController
 
   def index
     # Likeモデルのuser_idカラムがcurrent_user.idのmaster_piece_idカラムを取得する
-    master_piece = Like.where(user_id: current_user.id).pluck(:master_piece_id)
-    @master_pieces = MasterPiece.find(master_piece)#.page(params[:page])
+    master_piece_ids = Like.where(user_id: current_user.id).pluck(:master_piece_id)
+    @master_pieces = MasterPiece.where(id: master_piece_ids).page(params[:page]).order(created_at: :desc)
   end
 
   def create
