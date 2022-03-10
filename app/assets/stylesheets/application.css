@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
 .navbar-toggler{
   background-color: #EEEEEE !important;
   border-color: rgba(178, 34, 34, 1) !important;
 }
-
 
 .navbar-toggler-icon span{
   font-size: 3px;
