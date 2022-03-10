@@ -1,4 +1,17 @@
 <div class="container">
+
+<!--エラーメッセージ-->
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <%= @user.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <br>
   <h2 style="display:inline">会員情報編集</h2>
   <br><br>

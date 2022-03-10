@@ -9,7 +9,7 @@ class MasterPiece < ApplicationRecord
   validates :introduction, presence: true
   validates :jenre, presence: true
   validates :artist, presence: true
-  # validates :rate, presence: true
+  validates :rate, presence: true
 
 
   def liked_by?(user)

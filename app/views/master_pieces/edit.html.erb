@@ -1,4 +1,17 @@
 <div class="container">
+
+    <!--エラーメッセージ-->
+  <% if @master_piece.errors.any? %>
+    <div id="error_explanation">
+      <%= @master_piece.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @master_piece.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <br>
   <h2 style="display:inline">名盤編集</h2>
   <br><br>

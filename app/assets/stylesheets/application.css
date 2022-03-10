@@ -23,11 +23,15 @@
   font-size: 3px;
 }
 
-
+/*フラッシュメッセージ*/
 #error_explanation {
   color: red;
 }
 
 #notice {
   color: green;
+}
+
+#destroy {
+  color: red;
 }
