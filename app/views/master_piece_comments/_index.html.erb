@@ -1,0 +1,10 @@
+    <p>コメント件数：<%= master_piece.master_piece_comments.count %></p>
+    <% master_piece.master_piece_comments.each do |mpc| %>
+      <p class="mt-3"><%= image_tag mpc.user.get_image, size: "50x50" %></p>
+      <p>コメントユーザー：<%= mpc.user.name %></p>
+      <p>コメント日時：<%= mpc.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+      <p>コメント：<%= mpc.comment %></p>
+      <% if mpc.user == current_user %>
+      <%= link_to '消去', master_piece_master_piece_comment_path(mpc.master_piece,mpc), method: :delete, local: false, remote: true, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+    <% end %>
+    <% end %>

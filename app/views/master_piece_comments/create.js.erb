@@ -1,0 +1,3 @@
+$(".comment").html("<%= j(render "master_piece_comments/comments_form",master_piece: @master_piece,master_piece_comment: @master_piece_comment) %>");
+
+$(".comment-index").html("<%= j(render "master_piece_comments/index", master_piece: @master_piece) %>");
