@@ -1,4 +1,6 @@
 class MasterPiecesController < ApplicationController
+  # 他人のmaster_piece/edit/updateできないように。
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @master_piece = MasterPiece.new
@@ -48,5 +50,12 @@ class MasterPiecesController < ApplicationController
 
   def master_piece_params
     params.require(:master_piece).permit(:title, :artist, :jenre, :introduction, :rate)
+  end
+
+  # 他人の投稿編集画面に遷移できなくする。
+  def correct_user
+    @master_piece = MasterPiece.find(params[:id])
+    @user = @master_piece.user
+    redirect_to master_piece_path(@master_piece.id) unless @user == current_user
   end
 end

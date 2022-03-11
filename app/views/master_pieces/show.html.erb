@@ -54,7 +54,7 @@
       <p>コメントユーザー：<%= mpc.user.name %></p>
       <p>コメント日時：<%= mpc.created_at.strftime('%Y/%m/%d %H:%M') %></p>
       <p>コメント：<%= mpc.comment %></p>
-      <% if current_user.id == @master_piece.user_id %>
+      <% if mpc.user == current_user %>
       <%= link_to '消去', master_piece_master_piece_comment_path(mpc.master_piece,mpc), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
     <% end %>
     <% end %>
@@ -66,7 +66,6 @@
       <%= f.submit "送信する" %>
     <% end %>
   </div>
-
 
 </div>
   </div>

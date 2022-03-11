@@ -25,9 +25,13 @@
         <td><%= @user.name %></td>
         <td><%= @user.introduction %></td>
         <td><%= link_to @user.like_master_pieces.count,master_piece_likes_path(@user) %></td>
+
         <% if current_user.id == @user.id %>
-        <td><%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %></td>
+          <% if !(@user.name == "guestuser") %>
+            <td><%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %></td>
+          <% end %>
         <% end %>
+
       </tr>
     </tbody>
   </table>
