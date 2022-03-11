@@ -6,16 +6,16 @@ class User < ApplicationRecord
 
   has_many :master_pieces, dependent: :destroy
   has_many :master_piece_comments, dependent: :destroy
-  
+
   has_many :likes, dependent: :destroy
   has_many :like_master_pieces, through: :likes, source: :master_piece
 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
   has_one_attached :image
-  
+
   # guest
   def self.guest
-    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+    find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
     end
