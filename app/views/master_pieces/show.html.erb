@@ -15,31 +15,29 @@
     <p>ジャンル：<%= @master_piece.jenre %></p>
     <p>説明：<%= @master_piece.introduction %></p>
   </div>
+
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-              <span id="rate<%= @master_piece.id %>"></span>
-              <script>
-                $('#rate<%= @master_piece.id%>').raty({
-                  size     : 36,
-                  starOff:  '<%= asset_path('star-off.png') %>',
-                  starOn : '<%= asset_path('star-on.png') %>',
-                  starHalf: '<%= asset_path('star-half.png') %>',
-                  scoreName: '@master_piece[rate]',
-                  half: true,
-                  readOnly: true,
-                  score: <%= @master_piece.rate %>,
-                });
-              </script>
+      <span id="rate<%= @master_piece.id %>">評価：</span>
+      <script>
+        $('#rate<%= @master_piece.id%>').raty({
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          scoreName: '@master_piece[rate]',
+          half: true,
+          readOnly: true,
+          score: <%= @master_piece.rate %>,
+        });
+      </script>
     </li>
+
     <li class="list-group-item">
-
-
-<%= render 'likes/like', master_piece: @master_piece %>
-
-
-
+      <spna class="like"><%= render 'likes/like', master_piece: @master_piece %></spna>
     </li>
   </ul>
+
   <div class="card-body">
     <% if current_user.id == @master_piece.user_id %>
       <span><%= link_to '編集', edit_master_piece_path(@master_piece), class: "btn btn-sm btn-success" %></span>
