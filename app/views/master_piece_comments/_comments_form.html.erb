@@ -1,4 +1,4 @@
-<%= form_with model: [master_piece, master_piece_comment], local: false do |f| %>
-  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+<%= form_with model: master_piece_comment,url: master_piece_master_piece_comments_path(master_piece), mehtod: :post, local: false do |f| %>
+  <%= f.text_area :comment, rows: '5', cols: "50", placeholder: "コメント" %><br>
   <%= f.submit "送信する" %>
 <% end %>

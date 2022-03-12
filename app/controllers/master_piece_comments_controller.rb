@@ -8,7 +8,7 @@ class MasterPieceCommentsController < ApplicationController
     comment.save
     # redirect_to request.referer
 
-    # 元のコード
+    # 非同期じゃない元のコード
     # master_piece = MasterPiece.find(params[:master_piece_id])
     # comment = MasterPieceComment.new(master_piece_comments_params)
     # comment.user_id = current_user.id

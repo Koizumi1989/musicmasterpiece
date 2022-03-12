@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   resources :master_pieces, only: [:index, :show, :create, :edit, :update, :destroy, :new] do
     resources :master_piece_comments, only: [:create, :destroy]
-    resources :likes, only: [:create, :destroy, :index]
+    resource :likes, only: [:create, :destroy]
+    get "likes" => "likes#index"
   end
 
   resources :users, only: [:index, :show, :edit, :update]
