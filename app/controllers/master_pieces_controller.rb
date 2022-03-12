@@ -17,8 +17,15 @@ class MasterPiecesController < ApplicationController
     end
   end
 
+  # ソート機能
   def index
-    @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
+    if params[:sort] == "desc"
+      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
+    elsif params[:sort] == "asc"
+      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :asc)
+    else
+      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
+    end
   end
 
   def show

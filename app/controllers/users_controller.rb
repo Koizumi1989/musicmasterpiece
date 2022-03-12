@@ -10,7 +10,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
+    if params[:sort] == "desc"
+      @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
+    elsif params[:sort] == "asc"
+      @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :asc)
+    else
+      @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
+    end
   end
 
   def edit

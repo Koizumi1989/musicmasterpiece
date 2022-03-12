@@ -36,9 +36,16 @@
     </tbody>
   </table>
 
-  <br>
+
   <h2 style="display:inline">投稿名盤一覧</h2>
-  <br><br>
+
+  <div class="row">
+    <div class="col text-right">
+      <span><%= link_to "新しい順",user_path(sort: "desc"), class: "btn btn-sm btn-link" %></span>
+      <span>|</span>
+      <span><%= link_to "古い順",user_path(sort: "asc"), class: "btn btn-sm btn-link" %></span>
+    </div>
+  </div>
   <table class='table'>
       <thead class="bg-light text-dark">
         <tr>

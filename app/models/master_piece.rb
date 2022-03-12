@@ -10,10 +10,13 @@ class MasterPiece < ApplicationRecord
   validates :artist, presence: true
   validates :rate, presence: true
 
+
+  # お気に入り
   def liked_by?(user)
     likes.exists?(user_id: user.id)
   end
 
+  # 検索機能
   def self.looks(search, word)
     # 完全一致→perfect_match
     if search == "perfect_match"
