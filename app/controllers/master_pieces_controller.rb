@@ -19,13 +19,15 @@ class MasterPiecesController < ApplicationController
 
   # ソート機能
   def index
-    if params[:sort] == "desc"
-      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
-    elsif params[:sort] == "asc"
+    if params[:sort] == "new_arrival_order"
+      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc) #カラム名：：並び方
+    elsif params[:sort] == "posting_order"
       @master_pieces = MasterPiece.page(params[:page]).order(created_at: :asc)
-    # TODO: work on it later
-    # elsif
-    #   @master_pieces = MasterPiece.page(params[:page]).includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}
+    # TODO: work on it later ActiveRecord_Relationをpagenateに渡したい。
+    elsif params[:sort] == "highly_rated"
+      @master_pieces = MasterPiece.page(params[:page]).order(rate: :desc)
+    elsif params[:sort] == "low_rating"
+      @master_pieces = MasterPiece.page(params[:page]).order(rate: :asc)
     else
       @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
     end

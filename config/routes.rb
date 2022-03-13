@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :master_pieces, only: [:index, :show, :create, :edit, :update, :destroy, :new] do
     resources :master_piece_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
-    get "likes" => "likes#index"
   end
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+     get "likes" => "likes#index"
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

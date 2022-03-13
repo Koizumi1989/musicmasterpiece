@@ -5,15 +5,25 @@ class UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
 
   def index
+    if params[:sort] == "ascending_order"
+      @users = User.page(params[:page]).order(created_at: :desc) #カラム名：：並び方
+    elsif params[:sort] == "descending_order"
+      @users = User.page(params[:page]).order(created_at: :asc)
+    else
     @users = User.page(params[:page]).order(created_at: :desc)
+    end
   end
 
   def show
     @user = User.find(params[:id])
-    if params[:sort] == "desc"
+    if params[:sort] == "new_arrival_order"
       @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
-    elsif params[:sort] == "asc"
+    elsif params[:sort] == "posting_order"
       @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :asc)
+    elsif params[:sort] == "highly_rated"
+      @master_piece = MasterPiece.page(params[:page]).order(rate: :desc)
+    elsif params[:sort] == "low_rating"
+      @master_piece = MasterPiece.page(params[:page]).order(rate: :asc)
     else
       @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
     end
