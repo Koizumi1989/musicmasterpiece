@@ -20,16 +20,16 @@ class MasterPiecesController < ApplicationController
   # ソート機能
   def index
     if params[:sort] == "new_arrival_order"
-      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc) #カラム名：：並び方
+      @master_pieces = MasterPiece.page(params[:page]).recent #scope
     elsif params[:sort] == "posting_order"
-      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :asc)
+      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :asc) #カラム名：：並び方
     # TODO: work on it later ActiveRecord_Relationをpagenateに渡したい。
     elsif params[:sort] == "highly_rated"
       @master_pieces = MasterPiece.page(params[:page]).order(rate: :desc)
     elsif params[:sort] == "low_rating"
       @master_pieces = MasterPiece.page(params[:page]).order(rate: :asc)
     else
-      @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
+      @master_pieces = MasterPiece.page(params[:page]).recent
     end
   end
 
