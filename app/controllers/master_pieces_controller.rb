@@ -23,6 +23,9 @@ class MasterPiecesController < ApplicationController
       @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
     elsif params[:sort] == "asc"
       @master_pieces = MasterPiece.page(params[:page]).order(created_at: :asc)
+    # TODO: work on it later
+    # elsif
+    #   @master_pieces = MasterPiece.page(params[:page]).includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}
     else
       @master_pieces = MasterPiece.page(params[:page]).order(created_at: :desc)
     end
