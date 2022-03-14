@@ -5,11 +5,8 @@ class MasterPiece < ApplicationRecord
   # has_many :like_master_pieces, through: :likes, source: :users
 
   has_one_attached :image
-  validates :title, presence: true
-  validates :introduction, presence: true
-  validates :jenre, presence: true
-  validates :artist, presence: true
-  validates :rate, presence: true
+
+  validates :title, :introduction, :jenre, :artist, :rate, presence: true
 
   # ソート機能 try the scope
   scope :recent, -> { order(created_at: :desc) }
