@@ -15,8 +15,16 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
      get "likes" => "likes#index"
      get "search" => "users#search"
+    collection do
+     get :unsubscribe
+     patch :withdraw
+   end
   end
-  
-  resource :contacts, only: [:new, :create]
+
+  resource :contacts, only: [:new, :create] do
+    collection do
+      get :complete
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

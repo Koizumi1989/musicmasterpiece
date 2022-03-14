@@ -1,0 +1,10 @@
+<div class="text-center">
+  <h3 class="font-weight-bold text-danger">本当に退会しますか？</h3>
+  <p>
+    退会すると、すべてのサービスがご利用できなくなります。<br>
+    また、再度ご利用いただくには、新規登録から再登録が必要となります。<br>
+    退会する場合は、「退会する」をクリックしてください。
+  </p>
+    <%= link_to "退会しない", :back, class: "btn btn-sm btn-primary" %>
+    <%= link_to "退会する", withdraw_users_path, method: :patch, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger" %>
+</div>

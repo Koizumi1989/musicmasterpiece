@@ -4,6 +4,16 @@ class UsersController < ApplicationController
   # guestが編集画面にurl入力でも遷移不可にする
   before_action :ensure_guest_user, only: [:edit]
 
+
+  def withdraw
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会しました"
+    redirect_to root_path
+  end
+
+  # 投稿日を指定して、投稿件数を検索
   def search
     @user = User.find(params[:user_id])
     @master_pieces = @user.master_pieces
