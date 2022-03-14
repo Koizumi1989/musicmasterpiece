@@ -20,7 +20,7 @@ class MasterPiece < ApplicationRecord
   end
 
   # 検索機能
-  def self.looks(search, word)
+  def self.search(search, word)
     # 完全一致→perfect_match
     if search == "perfect_match"
       @master_piece = self.where(['artist LIKE(?) OR title LIKE(?) OR jenre LIKE(?)', "#{word}", "#{word}", "#{word}"])

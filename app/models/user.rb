@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   # 検索
-  def self.looks(search, word) #User.looksでも良い。（selfはUserクラスを指す）
+  def self.search(search, word) #User.@@（ここではsearch)でも良い。（selfはUserクラスを指す）
     # 完全一致→perfect_match
     if search == "perfect_match"
       @user = self.where("name LIKE?", "#{word}")

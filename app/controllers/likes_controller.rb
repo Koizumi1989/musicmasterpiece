@@ -7,12 +7,10 @@ class LikesController < ApplicationController
       @master_pieces = MasterPiece.where(id: master_piece_ids).page(params[:page]).order(created_at: :desc)
     elsif params[:sort] == "posting_order"
       @master_pieces = MasterPiece.where(id: master_piece_ids).page(params[:page]).order(created_at: :asc)
-      
     elsif params[:sort] == "highly_rated"
       @master_pieces = MasterPiece.where(id: master_piece_ids).page(params[:page]).order(rate: :desc)
     elsif params[:sort] == "low_rating"
       @master_pieces = MasterPiece.where(id: master_piece_ids).page(params[:page]).order(rate: :asc)
-      
     else
       @master_pieces = MasterPiece.where(id: master_piece_ids).page(params[:page]).order(created_at: :desc)
     end

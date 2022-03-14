@@ -4,6 +4,18 @@ class UsersController < ApplicationController
   # guestが編集画面にurl入力でも遷移不可にする
   before_action :ensure_guest_user, only: [:edit]
 
+  def search
+    @user = User.find(params[:user_id])
+    @master_pieces = @user.master_pieces
+    @master_piece = MasterPiece.new
+    if params[:created_at] == ""
+      @search_master_piece = "日付を選択してください"
+    else
+      create_at = params[:created_at]
+      @search_master_piece = @master_pieces.where("created_at LIKE?", "#{create_at}%").count
+    end
+  end
+
   def index
     if params[:sort] == "ascending_order"
       @users = User.page(params[:page]).order(created_at: :desc) #カラム名：：並び方
