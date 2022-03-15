@@ -1,4 +1,9 @@
 class MasterPiecesController < ApplicationController
+
+  impressionist
+  # pv数を計測したいアクション
+  impressionist :actions => [:show]
+
   # 他人のmaster_piece/edit/updateできないように。
   before_action :correct_user, only: [:edit, :update]
 
@@ -35,6 +40,7 @@ class MasterPiecesController < ApplicationController
 
   def show
     @master_piece = MasterPiece.find(params[:id])
+    impressionist(@master_piece, nil, unique: [:session_hash])
     @master_piece_comment = MasterPieceComment.new
   end
 

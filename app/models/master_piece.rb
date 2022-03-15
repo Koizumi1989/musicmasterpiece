@@ -4,6 +4,9 @@ class MasterPiece < ApplicationRecord
   has_many :likes
   # has_many :like_master_pieces, through: :likes, source: :users
 
+  # このモデルでimpressionableを使用可能に
+  is_impressionable
+
   has_one_attached :image
 
   validates :title, :introduction, :jenre, :artist, :rate, presence: true

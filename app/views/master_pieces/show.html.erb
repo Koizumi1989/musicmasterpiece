@@ -8,34 +8,23 @@
 
     <%= image_tag 'record.jpg', size: '478x478' %>
 
-<!--/*-->
-<!--<script type="text/javascript">-->
-<!--  var imglist = new Array(-->
-<!--      "/assets/cancel-off.png",-->
-<!--      "/assets/cancel-on.png",-->
-<!--      "/assets/drum.jpg",-->
-<!--      "/assets/stage.jpg" );-->
-<!--  var selectnum = Math.floor(Math.random() * imglist.length);-->
-<!--  var output = "<img src=" + imglist[selectnum] + ">";-->
-<!--  document.write(output);-->
-<!--</script>-->
-<!--/*-->
+
 
   </div>
 
   <div class="card-body">
-    <p>閲覧数：</p>
-    <p>投稿者：<%= @master_piece.user.name %></p>
-    <p>投稿日時：<%= @master_piece.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-    <p>アーティスト：<%= @master_piece.artist %></p>
-    <p>タイトル：<%= @master_piece.title%></p>
-    <p>ジャンル：<%= @master_piece.jenre %></p>
-    <p>説明：<%= @master_piece.introduction %></p>
+    <p><i class="fas fa-user"></i> 投稿者：<%= @master_piece.user.name %></p>
+    <p><i class="fas fa-clock"></i> 投稿日時：<%= @master_piece.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+    <p><i class="fas fa-users"></i> アーティスト：<%= @master_piece.artist %></p>
+    <p><i class="fas fa-compact-disc"></i> タイトル：<%= @master_piece.title%></p>
+    <p><i class="fas fa-music"></i> ジャンル：<%= @master_piece.jenre %></p>
+    <p><i class="fas fa-comment-alt fa-flip-horizontal"></i> 説明：<%= @master_piece.introduction %></p>
+    <p><i class="fas fa-eye" style="color: green;"></i> <%= @master_piece.impressionist_count(:filter => :session_hash) %></p>
   </div>
 
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <span id="rate<%= @master_piece.id %>">評価：</span>
+      <i class="far fa-thumbs-up"></i> <span id="rate<%= @master_piece.id %>">評価：</span>
       <script>
         $('#rate<%= @master_piece.id%>').raty({
           size     : 36,
