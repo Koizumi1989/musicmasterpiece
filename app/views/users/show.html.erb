@@ -72,7 +72,7 @@
           <th>タイトル</th>
           <th>ジャンル</th>
           <th>評価</th>
-          <th></th>
+          <th><%= link_to '全ての投稿を消去', destroy_all_master_pieces_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></th>
         </tr>
       </thead>
     <tbody>

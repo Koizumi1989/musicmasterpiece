@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # guestが編集画面にurl入力でも遷移不可にする
   before_action :ensure_guest_user, only: [:edit]
 
-
+  # 退会
   def withdraw
     @user = current_user
     @user.update(is_deleted: true)

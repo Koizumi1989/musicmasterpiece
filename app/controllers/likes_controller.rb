@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def index
-    # Likeモデルのuser_idカラムが@userのidのmaster_piece_idカラムを取得する
+    # Likeモデルのuser_idカラムが@userのidの人のmaster_piece_idカラムを取得する
     @user = User.find(params[:user_id])
     master_piece_ids = Like.where(user_id: @user.id).pluck(:master_piece_id)
     if params[:sort] == "new_arrival_order"

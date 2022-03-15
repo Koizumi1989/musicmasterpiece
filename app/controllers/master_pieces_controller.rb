@@ -58,6 +58,11 @@ class MasterPiecesController < ApplicationController
     redirect_to master_pieces_path
   end
 
+  # def destroy_all
+  #   @user = User.find(params[:id])
+  #   @user.MasterPiece.destroy_all
+  # end
+
   private
 
   def master_piece_params

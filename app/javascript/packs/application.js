@@ -22,3 +22,4 @@ ActiveStorage.start()
 // 評価
 window.$ = window.jQuery = require('jquery');
 require('./jquery.raty')
+

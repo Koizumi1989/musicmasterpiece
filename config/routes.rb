@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :master_pieces, only: [:index, :show, :create, :edit, :update, :destroy, :new] do
     resources :master_piece_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
+  collection do
+    delete :destroy_all
+  end
   end
 
   resources :users, only: [:index, :show, :edit, :update] do

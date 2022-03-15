@@ -17,8 +17,16 @@
   font-family: 'Monoton', cursive;
 }
 
+.title:hover {
+  color: red;
+}
+
 .text {
   font-family: 'Rampart One', cursive;
+}
+
+.text:hover {
+  color: blue;
 }
 
 .no_music {
