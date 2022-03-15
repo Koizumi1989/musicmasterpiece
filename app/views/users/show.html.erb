@@ -72,7 +72,9 @@
           <th>タイトル</th>
           <th>ジャンル</th>
           <th>評価</th>
-          <th><%= link_to '全ての投稿を消去', destroy_all_master_pieces_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></th>
+          <% if current_user.id == @user.id %>
+          <th><%= link_to '全ての投稿を消去', post_destroy_all_master_pieces_path, method: :delete, data: { confirm: '本当に全ての投稿を消去？' }, class: "btn btn-sm btn-danger"%></th>
+          <% end %>
         </tr>
       </thead>
     <tbody>

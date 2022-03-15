@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :master_piece_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   collection do
-    delete :destroy_all
+    delete :post_destroy_all
   end
   end
 
