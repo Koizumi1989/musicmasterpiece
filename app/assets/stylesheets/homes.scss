@@ -29,12 +29,18 @@
   color: blue;
 }
 
-.no_music {
-  background-image: image-url('no_music.jpg');
-}
 .stage {
   background-image: image-url('stage.jpg');
+  // background-position: bottom !important;
+  background-size: cover !important;
 }
+
+.no_music {
+  background-image: image-url('no_music.jpg');
+  background-position: center !important;
+  background-size: cover !important;
+}
+
 .record2 {
   background-image: image-url('record2.jpg');
 }
@@ -47,4 +53,6 @@
 }
 .drum {
   background-image: image-url('drum.jpg');
+  background-position: center !important;
+  background-size: cover !important;
 }

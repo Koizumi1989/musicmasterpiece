@@ -13,7 +13,7 @@
   <% end %>
 
   <br>
-  <h2 style="display:inline">名盤投稿</h2>
+  <h2 class="exhibition" style="display:inline">名盤投稿</h2>
   <br><br>
 
   <div class="row">
@@ -21,7 +21,7 @@
      <%= form_with model: @master_piece, url: master_pieces_path, method: :post, local:true do |f| %>
       <div class="form-group">
         <div class="row">
-          <label for="item_name" class="col-sm-3 col-form-label">アーティスト</label>
+          <label for="item_name" class="col-sm-3 col-form-label"><i class="fas fa-users"></i> アーティスト</label>
           <div class="col-sm-9">
            <%= f.text_field :artist, :value => "artist" %>
           </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="form-group">
         <div class="row">
-          <label for="item_introduction" class="col-sm-3 col-form-label">タイトル</label>
+          <label for="item_introduction" class="col-sm-3 col-form-label"><i class="fas fa-compact-disc"></i> タイトル</label>
           <div class="col-sm-9">
             <%= f.text_field :title, size: "40x5", :value => "title"  %>
           </div>
@@ -37,7 +37,7 @@
       </div>
       <div class="form-group">
         <div class="row">
-          <label for="item_genre" class="col-sm-3 col-form-label">ジャンル</label>
+          <label for="item_genre" class="col-sm-3 col-form-label"><i class="fas fa-music"></i> ジャンル</label>
           <div class="col-sm-9">
             <%= f.select :jenre, options_for_select([["POP"],["ROCK"],["HIP HOP",],["R & B"],["FUNK / SOUL"],["CLASSICAL"],["REGGAE"],["JAZZ"],["OTHERS"]]) %>
           </div>
@@ -45,7 +45,7 @@
       </div>
       <div class="form-group">
         <div class="row">
-          <label for="item_price" class="col-sm-3 col-form-label">説明</label>
+          <label for="item_price" class="col-sm-3 col-form-label"><i class="fas fa-comment-alt fa-flip-horizontal"></i> 説明</label>
           <div class="col-sm-9">
            <%= f.text_area :introduction, size: "40x5", :value => "introduction"  %>
           </div>
@@ -54,7 +54,7 @@
 
       <div class="form-group">
         <div class="row">
-          <label for="rate" class="col-sm-3 col-form-label">評価</label>
+          <label for="rate" class="col-sm-3 col-form-label"><i class="far fa-thumbs-up"></i> 評価</label>
           <div class="col-sm-9" id="rate_id">
            <%= f.hidden_field :rate %>
           </div>

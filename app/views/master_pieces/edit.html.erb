@@ -13,7 +13,7 @@
   <% end %>
 
   <br>
-  <h2 style="display:inline">名盤編集</h2>
+  <h2 class="exhibition" style="display:inline">名盤編集</h2>
   <br><br>
 
   <div class="row">
@@ -21,7 +21,7 @@
      <%= form_with model: @master_piece, url: master_piece_path(@master_piece), method: :patch, local:true do |f| %>
       <div class="form-group">
         <div class="row">
-          <label for="artist" class="col-sm-3 col-form-label">アーティスト</label>
+          <label for="artist" class="col-sm-3 col-form-label"><i class="fas fa-users"></i> アーティスト</label>
           <div class="col-sm-9">
            <%= f.text_field :artist %>
           </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="form-group">
         <div class="row">
-          <label for="title" class="col-sm-3 col-form-label">タイトル</label>
+          <label for="title" class="col-sm-3 col-form-label"><i class="fas fa-compact-disc"></i> タイトル</label>
           <div class="col-sm-9">
             <%= f.text_field :title, size: "40x5" %>
           </div>
@@ -37,7 +37,7 @@
       </div>
       <div class="form-group">
         <div class="row">
-          <label for="genre" class="col-sm-3 col-form-label">ジャンル</label>
+          <label for="genre" class="col-sm-3 col-form-label"><i class="fas fa-music"></i> ジャンル</label>
           <div class="col-sm-9">
             <%= f.text_field :jenre %>
           </div>
@@ -45,7 +45,7 @@
       </div>
       <div class="form-group">
         <div class="row">
-          <label for="introduction" class="col-sm-3 col-form-label">説明</label>
+          <label for="introduction" class="col-sm-3 col-form-label"><i class="fas fa-comment-alt fa-flip-horizontal"></i> 説明</label>
           <div class="col-sm-9">
            <%= f.text_area :introduction, size: "40x5" %>
           </div>

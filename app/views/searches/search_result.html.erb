@@ -1,12 +1,11 @@
-<h3><%= @range %> search for "<%= @word %>"</h3>
-
+<h2 class="exhibition"><%= @range %> search for "<%= @word %>"</h2>
 <table class='table'>
   <% if @range == "User" %>
     <thead class="bg-light text-dark">
       <tr>
-        <th>画像</th>
-        <th>名前</th>
-        <th>紹介</th>
+        <th><i class="fas fa-image"></i> 画像</th>
+        <th><i class="fas fa-user"></i> 名前</th>
+        <th><i class="fas fa-address-card"></i> 紹介</th>
         <th></th>
       </tr>
     </thead>
@@ -25,11 +24,11 @@
   <% else %>
     <thead class="bg-light text-dark">
       <tr>
-        <th>名盤画像</th>
-        <th>アーティスト</th>
-        <th>タイトル</th>
-        <th>ジャンル</th>
-        <th>評価</th>
+        <th></th>
+          <th><i class="fas fa-users"></i> アーティスト</th>
+          <th><i class="fas fa-compact-disc"></i> タイトル</th>
+          <th><i class="fas fa-music"></i> ジャンル</th>
+          <th><i class="far fa-thumbs-up"></i> 評価</th>
         <th></th>
       </tr>
     </thead>
