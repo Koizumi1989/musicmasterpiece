@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_master_pieces, through: :likes, source: :master_piece
 
+  # 退会していないuserのみを取得する。userに関わるもの全てのcontrollerに適応される。
+  # is_deleted：falseは退会していないuserのこと
+  default_scope { where(is_deleted: false) }
+
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
   has_one_attached :image
 
@@ -40,6 +44,7 @@ class User < ApplicationRecord
     end
   end
 
+  # 退会ユーザーかまだ生きてるユーザーかを聞いて、falseなら入れなくする。
   def active_for_authentication?
     self.is_deleted == false
   end

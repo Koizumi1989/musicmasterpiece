@@ -14,11 +14,6 @@
  *= require_self
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=New+Rocker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=New+Rocker&family=Train+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=New+Rocker&family=Rampart+One&family=Train+One&display=swap');
-
 .navbar-toggler{
   background-color: #EEEEEE !important;
   border-color: rgba(178, 34, 34, 1) !important;
@@ -42,6 +37,10 @@
 }
 
 .exhibition {
-  font-family: 'cursive' !important;
+  font-family: 'Kaisei Opti', serif;
   color: #0387b4;
+}
+
+.link {
+  color: red;
 }

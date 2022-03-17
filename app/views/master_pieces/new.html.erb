@@ -19,40 +19,42 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
      <%= form_with model: @master_piece, url: master_pieces_path, method: :post, local:true do |f| %>
-      <div class="form-group">
+     
+      <div class="form-group" style="width: 580px;">
         <div class="row">
-          <label for="item_name" class="col-sm-3 col-form-label"><i class="fas fa-users"></i> アーティスト</label>
+          <label for="artist" class="col-sm-3 col-form-label"><i class="fas fa-users"></i> アーティスト</label>
           <div class="col-sm-9">
-           <%= f.text_field :artist, :value => "artist" %>
+           <%= f.text_field :artist, size: "30x5", :value => "artist" %>
           </div>
         </div>
       </div>
-      <div class="form-group">
+      
+      <div class="form-group" style="width: 580px;">
         <div class="row">
-          <label for="item_introduction" class="col-sm-3 col-form-label"><i class="fas fa-compact-disc"></i> タイトル</label>
+          <label for="title" class="col-sm-3 col-form-label"><i class="fas fa-compact-disc"></i> タイトル</label>
           <div class="col-sm-9">
-            <%= f.text_field :title, size: "40x5", :value => "title"  %>
+            <%= f.text_field :title, size: "30x5", :value => "title"  %>
           </div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" style="width: 580px;">
         <div class="row">
-          <label for="item_genre" class="col-sm-3 col-form-label"><i class="fas fa-music"></i> ジャンル</label>
+          <label for="genre" class="col-sm-3 col-form-label"><i class="fas fa-music"></i> ジャンル</label>
           <div class="col-sm-9">
             <%= f.select :jenre, options_for_select([["POP"],["ROCK"],["HIP HOP",],["R & B"],["FUNK / SOUL"],["CLASSICAL"],["REGGAE"],["JAZZ"],["OTHERS"]]) %>
           </div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" style="width: 580px;">
         <div class="row">
-          <label for="item_price" class="col-sm-3 col-form-label"><i class="fas fa-comment-alt fa-flip-horizontal"></i> 説明</label>
+          <label for="introduction" class="col-sm-3 col-form-label"><i class="fas fa-comment-alt fa-flip-horizontal"></i> 説明</label>
           <div class="col-sm-9">
-           <%= f.text_area :introduction, size: "40x5", :value => "introduction"  %>
+           <%= f.text_area :introduction, size: "30x5", :value => "introduction"  %>
           </div>
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" style="width: 580px;">
         <div class="row">
           <label for="rate" class="col-sm-3 col-form-label"><i class="far fa-thumbs-up"></i> 評価</label>
           <div class="col-sm-9" id="rate_id">
@@ -71,7 +73,7 @@
       });
       </script>
 
-      <div class="form-group mx-auto" style="width: 100px;">
+      <div class="form-group mx-auto" style="width: 50px;">
         <%= f.submit "新規登録", class: "btn btn-success" %>
       </div>
      <% end %>

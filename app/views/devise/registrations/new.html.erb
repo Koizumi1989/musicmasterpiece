@@ -1,34 +1,57 @@
-<h2>会員登録</h2>
+<div class="container">
+  <br>
+  <h2 class="exhibition" style="display:inline">会員登録</h2>
+  <br><br>
 
-<%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <div class="form-group" style="width: 800px;">
+      　<div class="row">
+          <label for="name" class="col-sm-3 col-form-label"><i class="fas fa-users"></i> 名前</label>
+          <div class="col-sm-9">
+           <%= f.text_field :name, size: "30x5", autofocus: true, autocomplete: "name" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="width: 800px;">
+      　<div class="row">
+          <label for="mail" class="col-sm-3 col-form-label"><i class="fas fa-envelope"></i> メールアドレス</label>
+          <div class="col-sm-9">
+            <%= f.email_field :email, size: "30x5", autofocus: true, autocomplete: "email" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="width: 800px;">
+      　<div class="row">
+          <label for="password" class="col-sm-3 col-form-label"><i class="fas fa-key"></i> パスワード</label>
+          <div class="col-sm-9">
+            <% if @minimum_password_length %>
+             <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %><br />
+            <%= f.password_field :password, size: "30x5", autocomplete: "new-password" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="width: 800px;">
+      　<div class="row">
+          <label for="password_confirmation" class="col-sm-3 col-form-label"><i class="fas fa-key"></i> パスワード（確認）</label>
+          <div class="col-sm-9">
+            <%= f.password_field :password_confirmation, size: "30x5", autocomplete: "new-password" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mx-auto" style="width: 60px;">
+        <%= f.submit "新規登録", class: "btn btn-success" %>
+      </div>
+     <% end %>
+      <span>既に登録済みの方は</span><%= link_to "こちら", new_user_session_path, class: "link" %><span>からログインしてください。</span>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード（確認） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<span>既に登録済みの方は</span><%= link_to "こちら", new_user_session_path %><span>からログインしてください。</span>
+</div>

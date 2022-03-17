@@ -1,27 +1,41 @@
-<h2>ログイン</h2>
+<div class="container">
+  <br>
+  <h2 class="exhibition" style="display:inline">ログイン</h2>
+  <br><br>
 
-<%= form_with model: @user, url: user_session_path, method: :post do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @user, url: user_session_path, method: :post do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="form-group" style="width: 800px;">
+      　<div class="row">
+          <label for="name" class="col-sm-3 col-form-label"><i class="fas fa-envelope"></i> メールアドレス</label>
+          <div class="col-sm-9">
+           <%= f.email_field :email, size: "30x5", autofocus: true, autocomplete: "email" %>
+          </div>
+        </div>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :ログイン状態を保存 %>
+      <div class="form-group" style="width: 800px;">
+      　<div class="row">
+          <label for="password" class="col-sm-3 col-form-label"><i class="fas fa-key"></i> パスワード</label>
+          <div class="col-sm-9">
+            <%= f.password_field :password, size: "30x5", autocomplete: "current-password" %><br>
+              <% if devise_mapping.rememberable? %>
+                <%= f.check_box :remember_me %>
+                <%= f.label :ログイン状態を保存 %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mx-auto" style="width: 60px;">
+        <%= f.submit "ログイン", class: "btn btn-success" %>
+      </div>
+     <% end %>
+      <%= link_to "パスワードをお忘れですか?", new_password_path(resource_name) , class: "link" %><br />
+      <span>登録がお済みでない方は</span><%= link_to "こちら", new_user_registration_path, class: "link" %><span>から会員登録をしてください。</span>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
   </div>
-<% end %>
-
-<%= link_to "パスワードをお忘れですか?", new_password_path(resource_name) %><br />
-<span>会員登録がお済みでない方は</span><%= link_to "こちら", new_user_registration_path %><span>から会員登録をしてください。</span>
+</div>
