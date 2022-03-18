@@ -16,16 +16,23 @@
   </div>
 </div>
 
-<h2 class="ranking">Ranking</h2>
+<h2 class="ranking"><span>Rate Ranking</span></h2>
 <div class="row text-center">
   <% i=1 %>
   <% @master_pieces.each do |u| %>
-  <div class="col-3">
-    <div><%= i %>位</div>
+  <div class="col-4">
+    <% if i == 1 %>
+    <div><i class="fas fa-chess-king" style="color: #FF4F02;"></i> <%= i %>位</div>
+    <% elsif i == 2 %>
+    <div><i class="fas fa-chess-rook" style="color: #005FFF;"></i> <%= i %>位</div>
+    <% else %>
+    <div><i class="fas fa-chess-pawn" style="color: #00FF3B;"></i> <%= i %>位</div>
+    <% end %>
+
     <div><%= image_tag 'record.jpg', size: '50x50' %></div>
-    <div class="ranking-name">アーティスト： <%= u.artist %></div>
-    <div class="ranking-name">タイトル： <%= u.title %></div>
-    <div>ジャンル： <%= u.jenre %></div>
+    <div class="ranking-name"><i class="fas fa-users"></i> アーティスト： <%= u.artist %></div>
+    <div class="ranking-name"><i class="fas fa-compact-disc"></i> タイトル： <%= u.title %></div>
+    <div><i class="fas fa-music"></i> ジャンル： <%= u.jenre %></div>
   </div>
   <% i+=1 %>
   <% end %>
