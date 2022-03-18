@@ -20,6 +20,7 @@
   color: white;
   background: #3399FF;
   box-shadow: 5px 5px 0 black;
+  text-shadow:0 5px 5px black;
 }
 
 .title:hover {
@@ -70,4 +71,8 @@
 
 .ranking:hover {
   color: #00F9A9;
+}
+
+.ranking-name {
+  font-family: 'Shippori Mincho', serif;
 }
