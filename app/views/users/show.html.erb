@@ -25,7 +25,7 @@
         <td><%= @user.name %></td>
         <td><%= @user.introduction %></td>
 
-        <td><%= link_to @user.like_master_pieces.count, user_likes_path(@user.id) %></td>
+        <td><%= link_to @user.like_master_pieces.count.to_s + " 件", user_likes_path(@user.id) %></td>
 
 
         <% if current_user.id == @user.id %>
@@ -42,9 +42,9 @@
 
   <div class="row">
     <div class="col text-right">
-      <span><%= link_to "新着順",user_path(sort: "new_arrival_order"), class: "link_sort" %></span>
+      <span><%= link_to "新着順",user_path(sort: "new_arrival_order"), class: "btn btn-sm btn-link" %></span>
       <span>|</span>
-      <span><%= link_to "投稿順",user_path(sort: "posting_order"), class: "link_sort" %></span>
+      <span><%= link_to "投稿順",user_path(sort: "posting_order"), class: "btn btn-sm btn-link" %></span>
       <span>|</span>
       <span><%= link_to "高評価順",user_path(sort: "highly_rated"), class: "btn btn-sm btn-link" %></span>
       <span>|</span>

@@ -5,16 +5,25 @@
 @import "skippr";
 
 #container{
-  height: auto;
+  height: 600px;
+  margin: 0 auto;
   aspect-ratio: 16 / 9;
+}
+
+#theTarget {
+  border: 7px double #000;
 }
 
 .title {
   font-family: 'Monoton', cursive;
+  padding: 5px 10px;
+  color: white;
+  background: #3399FF;
+  box-shadow: 5px 5px 0 black;
 }
 
 .title:hover {
-  color: red;
+  color: #00F9A9;
 }
 
 .text {
@@ -22,7 +31,7 @@
 }
 
 .text:hover {
-  color: blue;
+  color: #FF00FF;
 }
 
 .stage {
@@ -48,7 +57,16 @@
 }
 
 .ranking {
+  width: 1066px;
+  margin: 10px auto;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
   color: white;
   background-color: #3399FF;
   font-family: 'Staatliches', cursive;
+}
+
+.ranking:hover {
+  color: #00F9A9;
 }

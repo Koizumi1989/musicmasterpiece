@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h1 class="title mx-auto">About.  Music   Master   Piece</h1>
-    <p class="text mx-auto">クラッシックアルバムからマイナーアルバムまで自分が名盤だと思う音楽の紹介や他ユーザの投稿を閲覧できるサイトです。</p>
+    <p class="text mx-auto" style="margin-bottom: 10px;">クラッシックアルバムからマイナーアルバムまで自分が名盤だと思う音楽の紹介や他ユーザの投稿を閲覧できるサイトです。</p>
   </div>
 </div>
 
@@ -16,16 +16,16 @@
   </div>
 </div>
 
-<h2 class="ranking text-center">Ranking</h2>
-<div class="row font-weight-bold text-center">
+<h2 class="ranking">Ranking</h2>
+<div class="row text-center">
   <% i=1 %>
   <% @master_pieces.each do |u| %>
   <div class="col-3">
     <div><%= i %>位</div>
     <div><%= image_tag 'record.jpg', size: '50x50' %></div>
-    <div><%= u.artist %></div>
-    <div><%= u.title %></div>
-    <div><%= u.jenre %></div>
+    <div class="ranking-name">アーティスト： <%= u.artist %></div>
+    <div class="ranking-name">タイトル： <%= u.title %></div>
+    <div>ジャンル： <%= u.jenre %></div>
   </div>
   <% i+=1 %>
   <% end %>
