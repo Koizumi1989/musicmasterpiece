@@ -43,9 +43,9 @@ class UsersController < ApplicationController
     elsif params[:sort] == "posting_order"
       @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :asc)
     elsif params[:sort] == "highly_rated"
-      @master_piece = MasterPiece.page(params[:page]).order(rate: :desc)
+      @master_piece = @user.master_pieces.page(params[:page]).order(rate: :desc)
     elsif params[:sort] == "low_rating"
-      @master_piece = MasterPiece.page(params[:page]).order(rate: :asc)
+      @master_piece = @user.master_pieces.page(params[:page]).order(rate: :asc)
     else
       @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
     end
