@@ -2,7 +2,7 @@ class MasterPiece < ApplicationRecord
   belongs_to :user
   has_many :master_piece_comments, dependent: :destroy
   has_many :likes
-  # has_many :like_master_pieces, through: :likes, source: :users
+  has_many :notifications, dependent: :destroy
 
   # このモデルでimpressionableを使用可能に
   is_impressionable
