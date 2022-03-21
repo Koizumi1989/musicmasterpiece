@@ -102,14 +102,18 @@ ActiveRecord::Schema.define(version: 2022_03_19_123554) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "visited_id"
-    t.integer "visiter_id"
+    t.integer "visited_id", null: false
+    t.integer "visitor_id", null: false
     t.integer "master_piece_id"
     t.integer "master_piece_comment_id"
-    t.string "action"
-    t.boolean "checked", default: false
+    t.string "action", default: "f", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["master_piece_comment_id"], name: "index_notifications_on_master_piece_comment_id"
+    t.index ["master_piece_id"], name: "index_notifications_on_master_piece_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "users", force: :cascade do |t|

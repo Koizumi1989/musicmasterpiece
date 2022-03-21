@@ -9,10 +9,10 @@ class User < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :like_master_pieces, through: :likes, source: :master_piece
-  
+
   # class_name:関連名と参照元のクラス名を異なるものにしたい場合につかう。
   # foreign_key:参照元のテーブルに定義されている外部キーの名前を指定
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   # 退会していないuserのみを取得する。userに関わるもの全てのcontrollerに適応される。
@@ -61,4 +61,5 @@ class User < ApplicationRecord
       'no_image.jpg'
     end
   end
+
 end

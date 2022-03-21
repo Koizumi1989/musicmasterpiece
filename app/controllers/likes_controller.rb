@@ -22,6 +22,8 @@ class LikesController < ApplicationController
     like = Like.new(master_piece_id: @master_piece.id, user_id: current_user.id)
     like.save
     # redirect_to request.referer
+    user_id =@master_piece.user.id
+    @master_piece.create_notification_like!(current_user, user_id, @master_piece.id)
   end
 
   def destroy

@@ -6,6 +6,8 @@ class MasterPieceCommentsController < ApplicationController
     comment.user_id = current_user.id
     comment.master_piece_id = @master_piece.id
     comment.save
+    @master_piece.create_notification_comment!(current_user, comment.id)
+
     # redirect_to request.referer
 
     # 非同期じゃない元のコード
