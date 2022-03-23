@@ -64,7 +64,7 @@ class MasterPiece < ApplicationRecord
     end
   end
   
-  
+  # コメント通知
   def create_notification_comment!(current_user, master_piece_comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = MasterPieceComment.select(:user_id).where(master_piece_id: id).where.not(user_id: current_user.id).distinct
