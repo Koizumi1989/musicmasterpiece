@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  
   before_action :authenticate_user!, except: [:new]
 
   def new
@@ -18,8 +19,9 @@ class ContactsController < ApplicationController
   end
 
   private
-
+  
   def contact_params
     params.require(:contact).permit(:name, :email,:phone_number, :content)
   end
+  
 end

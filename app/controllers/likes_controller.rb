@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  
   def index
     # Likeモデルのuser_idカラムが@userのidの人のmaster_piece_idカラムを取得する
     @user = User.find(params[:user_id])
@@ -21,7 +22,6 @@ class LikesController < ApplicationController
     @master_piece = MasterPiece.find(params[:master_piece_id])
     like = Like.new(master_piece_id: @master_piece.id, user_id: current_user.id)
     like.save
-    # redirect_to request.referer
     user_id =@master_piece.user.id
     @master_piece.create_notification_like!(current_user, user_id, @master_piece.id)
   end
@@ -30,6 +30,6 @@ class LikesController < ApplicationController
     @master_piece = MasterPiece.find(params[:master_piece_id])
     like = current_user.likes.find_by(master_piece_id: @master_piece.id)
     like.destroy
-    # redirect_to request.referer
   end
+  
 end

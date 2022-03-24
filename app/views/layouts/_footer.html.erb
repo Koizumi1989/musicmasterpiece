@@ -13,8 +13,6 @@
             <i class="far fa-envelope fa-spin"></i>
           <% end %>
           <%= link_to notifications_path, class: "btn btn-warning text-black mx-2", method: :get do %>
-
-<!--nilの場合の処理を定義　any-present-->
           <% if unchecked_notifications.present? %>
             <span class="fa-stack small">
               <i class="fa-solid far fa-bell fa-stack-2x" style="font-size: 1em"></i>

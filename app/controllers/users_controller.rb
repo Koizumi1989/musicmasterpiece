@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   # 他人のuser/edit/updateできないように。
   before_action :ensure_correct_user, only: [:edit, :update]
   # guestが編集画面にurl入力でも遷移不可にする
@@ -83,4 +84,5 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user), notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
+  
 end

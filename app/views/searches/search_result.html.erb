@@ -24,18 +24,21 @@
   <% else %>
     <thead class="bg-light text-dark">
       <tr>
-        <th></th>
-          <th><i class="fas fa-users"></i> アーティスト</th>
-          <th><i class="fas fa-compact-disc"></i> タイトル</th>
-          <th><i class="fas fa-music"></i> ジャンル</th>
-          <th><i class="far fa-thumbs-up"></i> 評価</th>
+        <th><i class="fas fa-user"></i> 投稿者</th>
+        <th><i class="fas fa-users"></i> アーティスト</th>
+        <th><i class="fas fa-compact-disc"></i> タイトル</th>
+        <th><i class="fas fa-music"></i> ジャンル</th>
+        <th><i class="far fa-thumbs-up"></i> 評価</th>
         <th></th>
       </tr>
     </thead>
       <tbody>
       <% @master_pieces.each do |m| %>
         <tr>
-          <td><%= image_tag m.get_image, size: "50x50" %></td>
+          <td>
+            <%= image_tag m.user.get_image, size: "50x50" %><br>
+            <%= m.user.name %>
+          </td>
           <td><%= m.artist %></td>
           <td><%= m.title %></td>
           <td><%= m.jenre %></td>
