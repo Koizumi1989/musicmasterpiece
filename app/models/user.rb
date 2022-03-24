@@ -15,12 +15,13 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
+  has_one_attached :image
+
+  validates :name, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
+
   # 退会していないuserのみを取得する。userに関わるもの全てのcontrollerに適応される。
   # is_deleted：falseは退会していないuserのこと
   default_scope { where(is_deleted: false) }
-
-  validates :name, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
-  has_one_attached :image
 
   # guest
   def self.guest
@@ -31,27 +32,27 @@ class User < ApplicationRecord
   end
 
   # 検索
-  def self.search(search, word) #User.@@（ここではsearch)でも良い。（selfはUserクラスを指す）
+  def self.search(search, word) # User.@@（ここではsearch)でも良い。（selfはUserクラスを指す）
     # 完全一致→perfect_match
     if search == "perfect_match"
-      @user = self.where("name LIKE?", "#{word}")
+      @user = where("name LIKE?", "#{word}")
       # 前方一致→forward_match
     elsif search == "forward_match"
-      @user = self.where("name LIKE?", "#{word}%")
+      @user = where("name LIKE?", "#{word}%")
       # 後方一致→backword_match
     elsif search == "backward_match"
-      @user = self.where("name LIKE?", "%#{word}")
+      @user = where("name LIKE?", "%#{word}")
       # 部分一致→partial_match
     elsif search == "partial_match"
-      @user = self.where("name LIKE?", "%#{word}%")
+      @user = where("name LIKE?", "%#{word}%")
     else
-      @user = self.all
+      @user = all
     end
   end
 
   # 退会ユーザーかまだ生きてるユーザーかを聞いて、falseなら入れなくする。
   def active_for_authentication?
-    self.is_deleted == false
+    is_deleted == false
   end
 
   def get_image
@@ -61,5 +62,4 @@ class User < ApplicationRecord
       'no_image.jpg'
     end
   end
-
 end

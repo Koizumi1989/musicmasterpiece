@@ -1,5 +1,4 @@
 class MasterPiecesController < ApplicationController
-
   impressionist
   # pv数を計測したいアクション
   impressionist :actions => [:show]
@@ -26,9 +25,9 @@ class MasterPiecesController < ApplicationController
   def index
     @page = MasterPiece.page(params[:page])
     if params[:sort] == "new_arrival_order"
-      @master_pieces = @page.recent #scope
+      @master_pieces = @page.recent # scope
     elsif params[:sort] == "posting_order"
-      @master_pieces = @page.order(created_at: :asc) #カラム名：：並び方
+      @master_pieces = @page.order(created_at: :asc) # カラム名：：並び方
     elsif params[:sort] == "highly_rated"
       @master_pieces = @page.order(rate: :desc)
     elsif params[:sort] == "low_rating"
@@ -71,7 +70,7 @@ class MasterPiecesController < ApplicationController
   end
 
   private
-  
+
   def master_piece_params
     params.require(:master_piece).permit(:title, :artist, :jenre, :introduction, :rate)
   end

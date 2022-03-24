@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  
   # 他人のuser/edit/updateできないように。
   before_action :ensure_correct_user, only: [:edit, :update]
   # guestが編集画面にurl入力でも遷移不可にする
@@ -29,11 +28,11 @@ class UsersController < ApplicationController
 
   def index
     if params[:sort] == "ascending_order"
-      @users = User.page(params[:page]).order(created_at: :desc) #カラム名：：並び方
+      @users = User.page(params[:page]).order(created_at: :desc) # カラム名：：並び方
     elsif params[:sort] == "descending_order"
       @users = User.page(params[:page]).order(created_at: :asc)
     else
-    @users = User.page(params[:page]).order(created_at: :desc)
+      @users = User.page(params[:page]).order(created_at: :desc)
     end
   end
 
@@ -84,5 +83,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user), notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end
-  
 end

@@ -1,5 +1,4 @@
 class SearchesController < ApplicationController
-  
   before_action :authenticate_user!
 
   def search_result
@@ -11,5 +10,4 @@ class SearchesController < ApplicationController
       @master_pieces = MasterPiece.search(params[:search], params[:word]).page(params[:page])
     end
   end
-  
 end
