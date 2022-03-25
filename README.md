@@ -35,7 +35,7 @@
 
 
 ## 設計書
-
+<https://github.com/Koizumi1989/musicmasterpiece/files/8347575/_.pdf>
 
 ## チャレンジ要素一覧
 
