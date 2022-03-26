@@ -17,9 +17,9 @@
       <tr>
         <td>
           <% if @user.image.attached? %>
-            <%= image_tag @user.image, size: "50x50" %>
+            <%= image_tag @user.image, size: "50x50" ,class: "rounded-circle"%>
           <% else %>
-            <%= image_tag 'no_image.jpg', size: "50x50" %>
+            <%= image_tag 'no_image.jpg', size: "50x50" ,class: "rounded-circle"%>
           <% end %>
         </td>
         <td><%= @user.name %></td>
@@ -80,7 +80,7 @@
       <% @master_piece.each do |m| %>
         <tr>
           <td>
-            <%= image_tag m.get_image, size: "50x50" %>
+            <%= image_tag m.get_image, size: "50x50" ,class: "rounded-circle" %>
           </td>
           <td><%= m.artist %></td>
           <td><%= m.title%></td>
