@@ -34,7 +34,16 @@
 名盤情報を共有したい時や、他ユーザの名盤情報を閲覧し、新たな名盤の発見や購入の検討材料が欲しいとき。
 
 
+## ER図
+
+<https://github.com/Koizumi1989/musicmasterpiece/files/8355196/ER.Diagram.drawio.pdf>
+
+## テーブル定義書
+
+<https://github.com/Koizumi1989/musicmasterpiece/files/8355194/default.pdf>
+
 ## 設計書
+
 <https://github.com/Koizumi1989/musicmasterpiece/files/8347575/_.pdf>
 
 ## チャレンジ要素一覧
