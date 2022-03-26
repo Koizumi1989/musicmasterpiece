@@ -23,7 +23,7 @@
       <% @users.each do |u| %>
         <tr>
           <td>
-            <%= image_tag u.get_image, size: "50x50" %>
+            <%= image_tag u.get_image, size: "50x50" ,class: "rounded-circle" %>
           </td>
           <td><%= u.name %></td>
           <td><%= u.introduction %></td>
