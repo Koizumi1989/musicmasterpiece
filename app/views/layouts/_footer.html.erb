@@ -18,6 +18,7 @@
           <% end %>
           <% end %>
 
+          <% if user_signed_in? %>
           <%= link_to notifications_path, class: "btn btn-warning text-black mx-2", method: :get do %>
           <% if unchecked_notifications.present? %>
             <span class="fa-stack small" style="width: 1.2em;">
@@ -26,6 +27,7 @@
             </span>
           <% else %>
             <i class="far fa-bell fa-spin"></i>
+          <% end %>
           <% end %>
           <% end %>
 
