@@ -58,6 +58,9 @@ class MasterPiece < ApplicationRecord
         visited_id: user_id,
         action: 'like'
       )
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
       # validationに引っ掛からなければセーブする。
       notification.save if notification.valid?
     end
@@ -82,6 +85,9 @@ class MasterPiece < ApplicationRecord
       visited_id: visited_id,
       action: 'master_piece_comment'
     )
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
     notification.save if notification.valid?
   end
 end
