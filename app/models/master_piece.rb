@@ -58,6 +58,7 @@ class MasterPiece < ApplicationRecord
         visited_id: user_id,
         action: 'like'
       )
+      # 自分が自分にお気に入りした場合は、通知済みとする
       if notification.visitor_id == notification.visited_id
         notification.checked = true
       end
@@ -85,6 +86,7 @@ class MasterPiece < ApplicationRecord
       visited_id: visited_id,
       action: 'master_piece_comment'
     )
+    # 自分が自分にコメントした場合は、通知済みとする
     if notification.visitor_id == notification.visited_id
       notification.checked = true
     end
