@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def withdraw
     @user = current_user
     @user.update(is_deleted: true)
+    MasterPiece.where(user_id: @user.id).delete_all
     reset_session
     flash[:notice] = "退会しました"
     redirect_to root_path

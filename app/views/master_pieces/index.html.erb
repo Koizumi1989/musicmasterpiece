@@ -23,11 +23,12 @@
         <th></th>
       </tr>
     </thead>
+
     <tbody>
       <% @master_pieces.each do |m| %>
         <tr>
           <td>
-            <%= image_tag m.user.get_image, size: "50x50" ,class: "rounded-circle" %><br>
+            <%= image_tag m.user.get_image, size: "50x50" %><br>
             <%= m.user.name %>
           </td>
           <td><%= m.artist %></td>
