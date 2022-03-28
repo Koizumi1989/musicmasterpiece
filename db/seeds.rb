@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = [
-  {name: 'one', email: 'a@a', password: 'koizumi'},
-  {name: 'two', email: 'b@b', password: 'koizumi'},
-  {name: 'three', email: 'c@c', password: 'koizumi'},
-  {name: 'four', email: 'd@d', password: 'koizumi'},
-  {name: 'five', email: 'e@e', password: 'koizumi'},
-  {name: 'six', email: 'f@f', password: 'koizumi'}
+  {name: 'one', email: 'one@one', password: 'koizumi'},
+  {name: 'two', email: 'two@two', password: 'koizumi'},
+  {name: 'three', email: 'three@three', password: 'koizumi'},
+  {name: 'four', email: 'four@four', password: 'koizumi'},
+  {name: 'five', email: 'five@five', password: 'koizumi'},
+  {name: 'six', email: 'six@six', password: 'koizumi'}
 ]
 
 users.each do |user|
