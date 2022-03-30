@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  
   def index
     # Likeモデルのuser_idカラムが@userのidの人のmaster_piece_idカラムを取得する
     @user = User.find(params[:user_id])

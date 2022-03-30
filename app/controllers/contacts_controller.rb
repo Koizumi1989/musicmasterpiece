@@ -1,6 +1,5 @@
 class ContactsController < ApplicationController
 
-
   def new
     @contact = Contact.new
   end
@@ -16,7 +15,6 @@ class ContactsController < ApplicationController
       render :new
     end
   end
-
 
   private
 

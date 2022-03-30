@@ -1,4 +1,5 @@
 class MasterPiecesController < ApplicationController
+  
   impressionist
   # pv数を計測したいアクション
   impressionist :actions => [:show]
