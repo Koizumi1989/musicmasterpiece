@@ -1,5 +1,4 @@
 class MasterPieceCommentsController < ApplicationController
-  
   def create
     @master_piece_comment = MasterPieceComment.new
     @master_piece = MasterPiece.find(params[:master_piece_id])

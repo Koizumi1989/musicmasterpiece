@@ -1,11 +1,11 @@
 class MasterPiecesController < ApplicationController
-  
+
   impressionist
   # pv数を計測したいアクション
   impressionist :actions => [:show]
 
-  # 他人のmaster_piece/edit/updateできないように。
-  before_action :correct_user, only: [:edit, :update]
+  # 他人のmaster_piece/edit/update/destroyできないように。
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @master_piece = MasterPiece.new
