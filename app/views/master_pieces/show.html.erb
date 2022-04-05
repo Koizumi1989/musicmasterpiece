@@ -21,6 +21,7 @@
     <li class="list-group-item">
       <i class="far fa-thumbs-up"></i> <span id="rate<%= @master_piece.id %>">評価：</span>
       <script>
+        $('#rate<%= @master_piece.id%>').empty();
         $('#rate<%= @master_piece.id%>').raty({
           size     : 36,
           starOff:  '<%= asset_path('star-off.png') %>',

@@ -36,6 +36,7 @@
           <td><%= m.jenre %></td>
           <td id="rate<%= m.id %>">
               <script>
+                $('#rate<%= m.id%>').empty();
                 $('#rate<%= m.id%>').raty({
                   size     : 36,
                   starOff:  '<%= asset_path('star-off.png') %>',

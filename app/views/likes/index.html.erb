@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <h2 style="display:inline">お気に入り一覧</h2>
 
   <div class="row">
@@ -39,6 +39,7 @@
           <td><%= m.jenre %></td>
           <td id="rate<%= m.id %>">
               <script>
+                $('#rate<%= m.id%>').empty();
                 $('#rate<%= m.id%>').raty({
                   size     : 36,
                   starOff:  '<%= asset_path('star-off.png') %>',
