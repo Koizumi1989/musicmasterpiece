@@ -6,5 +6,5 @@
   <p><i class="far fa-comment fa-flip-horizontal"></i>：<%= mpc.comment %></p>
   <% if mpc.user == current_user %>
   <%= link_to '消去', master_piece_master_piece_comment_path(mpc.master_piece,mpc), method: :delete, remote: true, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
-<% end %>
+  <% end %>
 <% end %>
