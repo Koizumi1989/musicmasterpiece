@@ -14,19 +14,19 @@
     <%= form_with model: @contact, url: contacts_path, method: :post, local:true do |f| %>
       <h1 class="exhibition">お問い合わせ</h1>
       <div class="box-name">
-        <%= f.label :名前 ,class: "style" %><br>
+        <%= f.label :名前 ,class: "style" %> <span style="color: red;">＊<span><br>
         <%= f.text_field :name, size: "40x5",  autofocus: true %>
       </div>
       <div class="box-mail">
-        <%= f.label :メールアドレス ,class: "style" %><br>
+        <%= f.label :メールアドレス ,class: "style" %> <span style="color: red;">＊<span><br>
         <%= f.text_field :email, size: "40x5", autofocus: true %>
       </div>
       <div class="box-phone">
-        <%= f.label :電話番号 ,class: "style" %><br>
+        <%= f.label :電話番号 ,class: "style" %> <span style="color: red;">＊<span><br>
         <%= f.text_field :phone_number, size: "40x5",  autofocus: true %>
       </div>
       <div class="box-content">
-        <%= f.label :お問い合わせ内容 ,class: "style" %><br>
+        <%= f.label :お問い合わせ内容 ,class: "style" %> <span style="color: red;">＊<span><br>
         <%= f.text_area :content, size: "40x5",  autofocus: true %>
       </div>
       <div class="box-login">
