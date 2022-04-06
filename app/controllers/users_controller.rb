@@ -30,26 +30,26 @@ class UsersController < ApplicationController
 
   def index
     if params[:sort] == "ascending_order"
-      @users = User.page(params[:page]).order(created_at: :desc) # カラム名：：並び方
+      @users = User.page(params[:page]).desc
     elsif params[:sort] == "descending_order"
-      @users = User.page(params[:page]).order(created_at: :asc)
+      @users = User.page(params[:page]).asc
     else
-      @users = User.page(params[:page]).order(created_at: :desc)
+      @users = User.page(params[:page]).desc
     end
   end
 
   def show
     @user = User.find(params[:id])
     if params[:sort] == "new_arrival_order"
-      @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
+      @master_piece = @user.master_pieces.page(params[:page]).desc
     elsif params[:sort] == "posting_order"
-      @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :asc)
+      @master_piece = @user.master_pieces.page(params[:page]).asc
     elsif params[:sort] == "highly_rated"
-      @master_piece = @user.master_pieces.page(params[:page]).order(rate: :desc)
+      @master_piece = @user.master_pieces.page(params[:page]).ratedesc
     elsif params[:sort] == "low_rating"
-      @master_piece = @user.master_pieces.page(params[:page]).order(rate: :asc)
+      @master_piece = @user.master_pieces.page(params[:page]).rateasc
     else
-      @master_piece = @user.master_pieces.page(params[:page]).order(created_at: :desc)
+      @master_piece = @user.master_pieces.page(params[:page]).desc
     end
   end
 

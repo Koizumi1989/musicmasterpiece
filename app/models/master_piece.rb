@@ -10,8 +10,11 @@ class MasterPiece < ApplicationRecord
   # このモデルでimpressionableを使用可能に
   is_impressionable
 
-  # ソート機能 try the scope
-  scope :recent, -> { order(created_at: :desc) }
+  # ソート機能
+  scope :desc, -> { order(created_at: :desc) } # カラム名：：並び方
+  scope :asc, -> { order(created_at: :asc) }
+  scope :ratedesc, -> { order(rate: :desc) }
+  scope :rateasc, -> { order(rate: :asc) }
 
   # お気に入り
   def liked_by?(user)

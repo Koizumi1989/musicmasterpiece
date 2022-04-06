@@ -26,15 +26,15 @@ class MasterPiecesController < ApplicationController
   def index
     @page = MasterPiece.page(params[:page])
     if params[:sort] == "new_arrival_order"
-      @master_pieces = @page.recent # scope
+      @master_pieces = @page.desc # scope
     elsif params[:sort] == "posting_order"
-      @master_pieces = @page.order(created_at: :asc) # カラム名：：並び方
+      @master_pieces = @page.asc
     elsif params[:sort] == "highly_rated"
-      @master_pieces = @page.order(rate: :desc)
+      @master_pieces = @page.ratedesc
     elsif params[:sort] == "low_rating"
-      @master_pieces = @page.order(rate: :asc)
+      @master_pieces = @page.rateasc
     else
-      @master_pieces = @page.recent
+      @master_pieces = @page.desc
     end
   end
 

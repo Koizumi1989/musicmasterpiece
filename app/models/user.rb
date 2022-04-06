@@ -23,6 +23,11 @@ class User < ApplicationRecord
   # is_deleted：falseは退会していないuserのこと
   default_scope { where(is_deleted: false) }
 
+  scope :desc, -> { order(created_at: :desc) } # カラム名：：並び方
+  scope :asc, -> { order(created_at: :asc) }
+  scope :ratedesc, -> { order(rate: :desc) }
+  scope :rateasc, -> { order(rate: :asc) }
+
   # guest
   def self.guest
     find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
