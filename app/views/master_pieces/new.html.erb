@@ -24,7 +24,7 @@
         <div class="row">
           <label for="artist" class="col-sm-3 pt-0 col-form-label"><i class="fas fa-users"></i> アーティスト <span style="color: red;">＊<span></label>
           <div class="col-sm-9">
-           <%= f.text_field :artist, size: "30x5"%>
+           <%= f.text_field :artist, size: "30x5",autofocus: true, placeholder: "Dvořák"%>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
         <div class="row">
           <label for="title" class="col-sm-3 pt-0 col-form-label"><i class="fas fa-compact-disc"></i> タイトル <span style="color: red;">＊<span></label>
           <div class="col-sm-9">
-            <%= f.text_field :title, size: "30x5"%>
+            <%= f.text_field :title, size: "30x5", placeholder: "Humoresky"%>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
         <div class="row">
           <label for="introduction" class="col-sm-3 pt-0 col-form-label"><i class="fas fa-comment-alt fa-flip-horizontal"></i> 説明 <span style="color: red;">＊<span></label>
           <div class="col-sm-9">
-           <%= f.text_area :introduction, size: "30x5"%>
+           <%= f.text_area :introduction, size: "30x5", placeholder: "名盤の説明をご記入ください"%>
           </div>
         </div>
       </div>

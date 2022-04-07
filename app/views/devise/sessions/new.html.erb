@@ -13,7 +13,7 @@
       　<div class="row">
           <label for="name" class="col-sm-3 col-form-label"><i class="fas fa-envelope"></i> メールアドレス <span style="color: red;">＊<span></label>
           <div class="col-sm-9">
-           <%= f.email_field :email, size: "30x5", autofocus: true, autocomplete: "email" %>
+           <%= f.email_field :email, size: "30x5", autofocus: true, autocomplete: "email", placeholder: "sample@gmail.com" %>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
       　<div class="row">
           <label for="password" class="col-sm-3 col-form-label"><i class="fas fa-key"></i> パスワード <span style="color: red;">＊<span></label>
           <div class="col-sm-9">
-            <%= f.password_field :password, size: "30x5", autocomplete: "current-password" %><br>
+            <%= f.password_field :password, size: "30x5", autocomplete: "current-password", placeholder: "password" %><br>
               <% if devise_mapping.rememberable? %>
                 <%= f.check_box :remember_me %>
                 <%= f.label :ログイン状態を保存 %>
